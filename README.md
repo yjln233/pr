@@ -7,6 +7,7 @@ A collection of handy developer utilities written in Python.
 - **txtimer** — Time how long a command takes to run
 - **fstats** — Show file/directory statistics
 - **passgen** — Generate secure random passwords
+- **qrgen** — Terminal QR-code-ish art from any text
 
 ## Installation
 

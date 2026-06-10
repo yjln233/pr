@@ -56,5 +56,10 @@ def show_stats(target: str) -> None:
     if ext_counter:
         print(f"\n  File types (top 10):")
         for ext, count in ext_counter.most_common(10):
-            bar = "█" * min(count, 30)
-            print(f"    {ext:<15} {count:>5}  {bar}")
+            pct = (count / file_count * 100) if file_count else 0
+            bar = "▓" * min(count, 30)
+            print(f"    {ext:<15} {count:>5} ({pct:>5.1f}%)  {bar}")
+
+    # Easter egg
+    if total_size > 1_000_000_000:
+        print(f"\n  🐳 That's a chonky directory!")

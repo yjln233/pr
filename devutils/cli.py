@@ -7,6 +7,7 @@ from devutils import __version__
 from devutils.txtimer import run_timer
 from devutils.fstats import show_stats
 from devutils.passgen import generate_password
+from devutils.qrgen import generate_qr
 
 
 def main() -> None:
@@ -38,6 +39,10 @@ def main() -> None:
         "--count", "-c", type=int, default=1, help="Number of passwords (default: 1)"
     )
 
+    # qrgen — quick QR code from text
+    qr_parser = subparsers.add_parser("qrgen", help="Generate a QR code from text")
+    qr_parser.add_argument("text", help="Text to encode in QR code")
+
     args = parser.parse_args()
 
     if args.command == "txtimer":
@@ -46,6 +51,8 @@ def main() -> None:
         show_stats(args.path)
     elif args.command == "passgen":
         generate_password(args.length, args.count)
+    elif args.command == "qrgen":
+        generate_qr(args.text)
     else:
         parser.print_help()
         sys.exit(1)
