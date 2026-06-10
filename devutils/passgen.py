@@ -44,3 +44,18 @@ def generate_password(length: int = 20, count: int = 1) -> None:
             strength = "Very Strong 🛡️"
 
         print(f"  Length: {length} chars | Entropy: ~{entropy} bits | {strength}")
+
+
+def leetify(text: str) -> str:
+    """h3ll0 h0w 4r3 y0u -> Translate text to leet speak."""
+    table = str.maketrans({
+        'a': '4', 'A': '4',
+        'e': '3', 'E': '3',
+        'i': '1', 'I': '1',
+        'o': '0', 'O': '0',
+        's': '5', 'S': '5',
+        't': '7', 'T': '7',
+        'g': '9', 'G': '9',
+        'l': '1', 'L': '1',
+    })
+    return text.translate(table)

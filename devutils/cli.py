@@ -8,6 +8,7 @@ from devutils.txtimer import run_timer
 from devutils.fstats import show_stats
 from devutils.passgen import generate_password
 from devutils.qrgen import generate_qr
+from devutils.mood import check_mood
 
 
 def main() -> None:
@@ -43,6 +44,9 @@ def main() -> None:
     qr_parser = subparsers.add_parser("qrgen", help="Generate a QR code from text")
     qr_parser.add_argument("text", help="Text to encode in QR code")
 
+    # mood — daily dev mood
+    subparsers.add_parser("mood", help="Check today's developer mood")
+
     args = parser.parse_args()
 
     if args.command == "txtimer":
@@ -53,6 +57,8 @@ def main() -> None:
         generate_password(args.length, args.count)
     elif args.command == "qrgen":
         generate_qr(args.text)
+    elif args.command == "mood":
+        check_mood()
     else:
         parser.print_help()
         sys.exit(1)

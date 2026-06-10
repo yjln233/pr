@@ -8,6 +8,7 @@ A collection of handy developer utilities written in Python.
 - **fstats** — Show file/directory statistics
 - **passgen** — Generate secure random passwords
 - **qrgen** — Terminal QR-code-ish art from any text
+- **mood** — Daily developer mood forecast (deterministic, very scientific)
 
 ## Installation
 

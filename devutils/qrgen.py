@@ -21,7 +21,9 @@ def generate_qr(text: str) -> None:
     seed = sum(ord(c) for c in text)
     random.seed(seed)
     print()
-    for _ in range(5):
-        line = "".join(random.choice(" █▀▄▌▐") for _ in range(n))
+    flavors = [" █▀▄▌▐", " ░▒▓█", " ═║╔╗╚╝", " ▄▀█▀▄"]
+    chosen = random.choice(flavors)
+    for _ in range(random.randint(3, 7)):
+        line = "".join(random.choice(chosen) for _ in range(n))
         print(f"  {line}")
-    print()
+    print(f"  (flavor: {chosen.strip()})")
